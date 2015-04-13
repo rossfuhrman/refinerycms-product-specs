@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.authors           = ['Ross Fuhrman']
   s.license           = %q{MIT}
   s.require_paths     = %w(lib)
-  s.files             = Dir["{app,config,db,lib}/**/*"] + Dir["{app/decorators/model/refinery/*"] + ["readme.md"]
+  s.files             = Dir["{app,config,db,lib}/**/*"] + Dir["{app/decorators/model/refinery/*"] + ["README.md"]
 
   # Runtime dependencies
   s.add_dependency    'refinerycms-core',            '~> 3.0.0'

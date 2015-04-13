@@ -1,0 +1,23 @@
+<section id='records'>
+  <% if @products.any? %>
+    <%= will_paginate @products %>
+
+    <%= render "sortable_list" %>
+
+    <%= will_paginate @products %>
+  <% else %>
+    <% if searching? %>
+      <%= t('no_results', :scope => 'refinery.admin.search') %>
+    <% else %>
+      <p>
+        <strong>
+          <%= t('.no_items_yet', :create => t('new', :scope => 'refinery.products.admin.submenu.products')) %>
+        </strong>
+      </p>
+    <% end %>
+  <% end %>
+</section>
+
+<section id='actions'>
+  <%= render 'actions' %>
+</section>

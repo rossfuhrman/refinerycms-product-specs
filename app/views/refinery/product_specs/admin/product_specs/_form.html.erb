@@ -1,0 +1,52 @@
+<%= form_for [refinery, :product_specs_admin, @product_spec] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => f.object,
+              :include_object_name => true %>
+
+  <%= render '/refinery/admin/locale_picker',
+              :current_locale => Globalize.locale %>
+  <div class='field'>
+    <%= f.label :refinery_product_id -%>
+    <%= f.text_field :refinery_product_id, :class => 'larger widest' -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest' -%>
+  </div>
+  <div class='field'>
+    <%= f.label :kind -%>
+    <%= f.text_field :kind, :class => 'larger widest' -%>
+  </div>
+  <div class='field'>
+    <%= f.label :priority_sequence -%>
+    <%= f.text_field :priority_sequence, :class => 'larger widest' -%>
+  </div>
+  <div class='field'>
+    <%= f.label :english_value -%>
+    <%= f.text_field :english_value, :class => 'larger widest' -%>
+  </div>
+  <div class='field'>
+    <%= f.label :english_unit -%>
+    <%= f.text_field :english_unit, :class => 'larger widest' -%>
+  </div>
+  <div class='field'>
+    <%= f.label :metric_value -%>
+    <%= f.text_field :metric_value, :class => 'larger widest' -%>
+  </div>
+  <div class='field'>
+    <%= f.label :metric_unit -%>
+    <%= f.text_field :metric_unit, :class => 'larger widest' -%>
+  </div>
+
+
+
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.product_specs.admin.product_specs.product_spec'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @product_spec.name) -%>
+
+<% end -%>
+
+<% content_for :stylesheets, stylesheet_link_tag('refinery/products/backend') %>
+<% content_for :javascripts, javascript_include_tag('refinery/products/backend') %>

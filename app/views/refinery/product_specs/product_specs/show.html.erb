@@ -1,0 +1,26 @@
+<% content_for :title, @product.title %>
+
+<% content_for :body do %>
+  <h1><%= @product.title %></h1>
+
+  <% if !@product_images.empty? %>
+    <ul id='gallery'>
+      <% @product_images.each do |image| %>
+        <li>
+          <%= link_to image_tag(image.thumbnail(geometry: "200x200#c").url),
+                      image.thumbnail(geometry: "900x600").url %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= raw @product.body %>
+<% end %>
+
+<% content_for :side_body do %>
+  <aside>
+    <%= render :partial => '/refinery/products/shared/products_fast_nav' %>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page', :hide_sections => [:body_content_title] %>

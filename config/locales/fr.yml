@@ -1,0 +1,101 @@
+fr:
+  refinery:
+    plugins:
+      refinerycms_products:
+        title: Produits
+    products:
+      admin:
+        draft: Brouillon
+        submenu:
+          categories:
+            title: Catégories
+            manage: Gérer les catégories
+            new: Créer une nouvelle catégorie
+          products:
+            title: Produits
+            manage: Gérer les produits
+            new: Créer un nouveau produit
+            uncategorized: Produits non-catégorisés
+          properties:
+            title: Propriétés
+            manage: Gérer les propriétés
+            new: Créer une nouvelle propriété
+        categories:
+          actions:
+            create_new: Ajouter une nouvelle catégorie
+            reorder_categories: Réorganiser les catégories
+            reorder_categories_done: Fin de la réorganisation des catégories
+          index:
+            no_items_yet: Aucune catégorie pour le moment.
+          records:
+            title: Catégories
+            sorry_no_results: Désolé ! Aucun résultat.
+            no_items_yet: Il n'y a actuellement aucun(e) catégorie. Cliquer sur "Ajouter une nouvelle catégorie" pour créer votre première catégorie.
+          category:
+            delete: Supprimer cette catégorie
+            edit: Modifier cette catégorie
+            expand_collapse: Déployer ou réduire
+            new: Ajouter une nouvelle sous-catégorie
+        properties:
+          actions:
+            create_new: Ajouter une nouvelle propriété
+            reorder_properties: Réorganiser les propriétés
+            reorder_properties_done: Fin de la réorganisation des propriétés
+          index:
+            no_items_yet: Aucune propriété pour le moment.
+          records:
+            title: Propriétés
+            sorry_no_results: Désolé ! Aucun résultat.
+            no_items_yet: Il n'y a actuellement aucun(e) propriété. Cliquer sur "Ajouter une nouvelle propriété" pour créer votre première propriété.
+          property:
+            delete: Supprimer cette propriété
+            edit: Modifier cette propriété
+        products:
+          actions:
+            create_new: Ajouter un nouveau produit
+            reorder: Réorganiser les produits
+            reorder_done: Fin de la réorganisation des produits
+          index:
+            no_items_yet: Aucun produit pour le moment.
+          records:
+            title: Produits
+            sorry_no_results: Désolé ! Aucun résultat.
+            no_items_yet: Il n'y a actuellement aucun produit. Cliquer sur "Ajouter un nouveau produit" pour créer votre premier produit.
+          product:
+            view_live_html: Voir ce produit <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce produit
+            delete: Supprimer ce produit
+          uncategorized:
+            no_items_yet: Aucun produit pour le moment.
+      categories:
+        show:
+          other: Autres catégories
+      products:
+        show:
+          other: Autres produits
+      shared:
+        product:
+          read_more: Lire plus <span class="visuallyhidden"> à propos du %{product} </span>
+
+  activerecord:
+    models:
+      refinery/products/category: Catégorie
+      refinery/products/product: Produit
+      refinery/products/property: Propriété
+    attributes:
+      refinery/products/category:
+        title: Titre
+        body: Contenu
+        photo: Photo
+        parent_category: Catégorie parente
+        promote: Promouvoir
+      refinery/products/product:
+        title: Titre
+        sku: SKU
+        content: Contenu
+        file: Fichier
+        properties: Propriétés
+        categories: Catégories
+        published_at: Publié le
+      refinery/products/property:
+        title: Titre

@@ -1,0 +1,17 @@
+<% content_for :title, @page.title %>
+
+<% content_for :body do %>
+  <% if @products.any? %>
+    <ul id="products">
+      <%= render :partial => '/refinery/products/shared/product', :collection => @products %>
+    </ul>
+  <% else %>
+    <p>
+      <strong>
+        <%= t('.no_items_yet') %>
+      </strong>
+    </p>
+  <% end %>
+<% end %>
+
+<%= render '/refinery/content_page', :hide_sections => [:side_body, :body_content_title] %>

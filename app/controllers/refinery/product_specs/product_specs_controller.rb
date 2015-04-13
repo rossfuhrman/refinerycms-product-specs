@@ -1,6 +1,6 @@
 module Refinery
   module ProductSpecs
-    class ProductSpecsController < ShopController
+    class ProductSpecsController 
       #include Refinery::Products::ControllerHelper
 
 

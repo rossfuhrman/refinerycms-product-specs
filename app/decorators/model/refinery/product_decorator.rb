@@ -11,5 +11,4 @@ Refinery::Products::Product.class_eval do
     self.long_name || self.name || self.non_display_name || nil
   end
 
-  alias :title :display_name
 end

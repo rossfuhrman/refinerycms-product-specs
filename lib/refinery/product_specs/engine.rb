@@ -14,6 +14,10 @@ module Refinery
         end
       end
 
+      config.to_prepare do
+        Refinery::ProductSpecs.attach!
+      end
+
       config.after_initialize do
         Refinery.register_engine(Refinery::ProductSpecs)
       end

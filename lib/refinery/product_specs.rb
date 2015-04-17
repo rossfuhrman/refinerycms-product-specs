@@ -27,6 +27,13 @@ module Refinery
       def factory_paths
         @factory_paths ||= [ root.join('spec', 'factories').to_s ]
       end
+
+      def attach!
+        # dosnt work wothout this...
+        require root.join('app/decorators/model/refinery/product_decorator.rb')
+        require root.join('app/decorators/model/refinery/category_decorator.rb')
+      end
+
     end
   end
 end

@@ -3,7 +3,7 @@ source "http://rubygems.org"
 gemspec
 
 git 'git://github.com/refinery/refinerycms.git', :branch => 'master' do
-  gem 'refinerycms'
+  gem 'refinerycms', git: 'https://github.com/refinery/refinerycms'
 
   group :development, :test do
     gem 'refinerycms-testing'
@@ -20,6 +20,10 @@ gem 'refinerycms-i18n',
 
 gem 'refinerycms-wymeditor',
   git: 'https://github.com/parndt/refinerycms-wymeditor',
+  branch: 'master'
+
+gem 'refinerycms-products',
+  github: 'bisscomm/refinerycms-products',
   branch: 'master'
 
 # Database Configuration

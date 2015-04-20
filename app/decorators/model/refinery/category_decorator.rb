@@ -9,12 +9,12 @@ Refinery::Products::Category.class_eval do
 
   def specs
     (parent.blank? ? ActiveSupport::OrderedHash.new : parent.specs).tap do |hash|
-      spec_groups.each { |g| hash[g] = g.specs }
+      spec_categories.each { |g| hash[g] = g.specs }
     end
   end
 
   def flattened_specs
-    spec_groups.map(&:specs).flatten.sort_by(&:priority_sequence)
+    spec_categories.map(&:specs).flatten.sort_by(&:priority_sequence)
   end
 
   def default_spec_columns

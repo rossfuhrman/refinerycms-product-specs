@@ -3,33 +3,33 @@ module Refinery
     class SpecValue < ActiveRecord::Base
       self.table_name = 'refinery_products_spec_values'
       belongs_to :product, :class_name => 'Refinery::Products::Product'
-      def formatted_value(tech_spec, short = false)
+      def formatted_value(spec, short = false)
         return text_value if text_value.present?
 
         if short
-          format_english_value(tech_spec)
+          format_english_value(spec)
         else
-          "#{format_english_value(tech_spec)} (#{format_metric_value(tech_spec)})"
+          "#{format_english_value(spec)} (#{format_metric_value(spec)})"
         end
       end
 
-      def format_english_value(tech_spec)
-        "#{format(english_value)} #{tech_spec.english_unit}"
+      def format_english_value(spec)
+        "#{format(english_value)} #{spec.english_unit}"
       end
 
-      def format_metric_value(tech_spec)
-        "#{format(metric_value)} #{tech_spec.metric_unit}"
+      def format_metric_value(spec)
+        "#{format(metric_value)} #{spec.metric_unit}"
       end
 
-      def tech_spec
-        @tech_spec ||= find_tech_spec
+      def spec
+        @spec ||= find_spec
       end
 
-      def find_tech_spec
+      def find_spec
         if self.spec_id
-          Refinery::ProductSpecs::Spec.find_by_cat_id(self.tech_spec_id)
+          Refinery::ProductSpecs::Spec.find_by_id_from_vendor(self.spec_id)
         else
-          Refinery::ProductSpecs::Spec.find_by_cat_id(self.cat_id)
+          Refinery::ProductSpecs::Spec.find_by_id_from_vendor(self.id_from_vendor)
         end
       end
 

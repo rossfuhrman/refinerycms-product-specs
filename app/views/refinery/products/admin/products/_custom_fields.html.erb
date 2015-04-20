@@ -1,13 +1,3 @@
-<%= render 'more_custom_fields', :f => f %>
 <h2>Product Specs</h2>
-<% if @product.spec_values.any? %>
-  <ul>
-    <% @product.spec_values.each do |spec| %>
-        <li>
-          <%= spec.english_value %>
-          <%= link_to "Edit/Delete", refinery.edit_product_specs_admin_product_spec_path(spec, :refinery_product_id => @product.id) %>
-        </li>
-    <% end %>
-  </ul>
-<% end %>
-<%= link_to "Add a spec", refinery.new_product_specs_admin_product_spec_path(:product_id => @product.id) %>
+    <%= render 'spec_fields', :specs => @product.parent_category.specs, :spec_values => @product.spec_values  %>
+

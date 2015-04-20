@@ -3,6 +3,8 @@ Refinery::Products::Product.class_eval do
   has_many :spec_values, :class_name => '::Refinery::ProductSpecs::SpecValue', :foreign_key => 'product_id', :dependent => :destroy
   has_many :images, :as => :imagable, :class_name => '::Refinery::Products::ProductImage', :dependent => :destroy
 
+  accepts_nested_attributes_for :spec_values, allow_destroy: true
+
   attr_accessor :flattened_specs
 
   def display_name

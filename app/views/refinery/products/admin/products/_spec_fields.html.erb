@@ -1,0 +1,39 @@
+<% if specs.any? %>
+  <fieldset>
+    <legend>Technical Specifications</legend>
+    <% specs.each_pair do |spec_group, spec_collection| %>
+
+      <div>
+        <%= label_tag nil, spec_group.name.to_s %>
+
+        <% spec_collection.each_with_index do |spec, index| %>
+
+          <%= label_tag spec.name %>
+
+          <% if spec.english_unit.present? %>
+            English (<%= spec.english_unit %>): 
+            <%= spec_text_field spec_values, spec, :english_value, 10, spec.id %>
+          <% end %>
+          
+          <% if spec.metric_unit.present? %>
+            Metric (<%= spec.metric_unit %>): 
+            <%= spec_text_field spec_values, spec, :metric_value, 10, spec.id %>
+          <% end %>
+
+          <% if spec.metric_unit.blank? && spec.english_unit.blank? %>
+            <%= spec_text_field spec_values, spec, :text_value, 30, spec.id %>
+
+          <% end %>
+
+
+          <%= spec_text_field spec_values, spec, :id, 10, :hidden  %>
+          <%= spec_text_field spec_values, spec, :id_from_vendor, 10, :hidden %>
+          <%= spec_text_field spec_values, spec, :product_id, 10, :hidden %>
+
+        <% end %>
+      </div>
+
+
+    <% end %>
+  </fieldset>
+<% end %>

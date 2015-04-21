@@ -12,23 +12,23 @@
 
           <% if spec.english_unit.present? %>
             English (<%= spec.english_unit %>): 
-            <%= spec_text_field spec_values, spec, :english_value, 10, spec.id %>
+            <%= spec_text_field spec_values, spec, :english_value, index, 10, spec.id %>
           <% end %>
           
           <% if spec.metric_unit.present? %>
             Metric (<%= spec.metric_unit %>): 
-            <%= spec_text_field spec_values, spec, :metric_value, 10, spec.id %>
+            <%= spec_text_field spec_values, spec, :metric_value, index, 10, spec.id %>
           <% end %>
 
           <% if spec.metric_unit.blank? && spec.english_unit.blank? %>
-            <%= spec_text_field spec_values, spec, :text_value, 30, spec.id %>
+            <%= spec_text_field spec_values, spec, :text_value, index, 30, spec.id %>
 
           <% end %>
 
 
-          <%= spec_text_field spec_values, spec, :id, 10, :hidden  %>
-          <%= spec_text_field spec_values, spec, :id_from_vendor, 10, :hidden %>
-          <%= spec_text_field spec_values, spec, :product_id, 10, :hidden %>
+          <%= spec_text_field spec_values, spec, :id, index, 10, :hidden  %>
+          <%= spec_text_field spec_values, spec, :id_from_vendor, index, 10, :hidden %>
+          <%= spec_text_field spec_values, spec, :product_id, index, 10, :hidden %>
 
         <% end %>
       </div>

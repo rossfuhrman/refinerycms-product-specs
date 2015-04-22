@@ -30,7 +30,7 @@ Refinery::Products::Product.class_eval do
 
     specs.each do |spec|
       value = spec_value_for(spec)
-      value_hash[spec] = value #unless value.blank?
+      value_hash[spec] = value unless value.nil? || value.has_no_value?
     end
 
     value_hash

@@ -25,6 +25,10 @@ module Refinery
         @spec ||= find_spec
       end
 
+      def has_no_value?
+        english_value.blank? && metric_value.blank? && text_value.blank?
+      end
+
       def find_spec
         if self.spec_id
           Refinery::ProductSpecs::Spec.find_by_id_from_vendor(self.spec_id)

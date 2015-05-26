@@ -1,3 +1,6 @@
 <h2>Product Specs</h2>
+  <% if @product && @product.parent_category %>
     <%= render 'spec_fields', :specs => @product.parent_category.specs, :spec_values => @product.spec_values  %>
-
+  <% else %>
+    <p> No product specs yet. You will need to save the product with a product category (under Advanced Options) in order to add product specs. </p>
+  <% end %>
